@@ -1,0 +1,10 @@
+@import 'assets/scss/_variables';
+
+.login {
+    width: 100vw;
+    height: calc(100vh - 30px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: $black;
+}

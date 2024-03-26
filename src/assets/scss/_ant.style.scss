@@ -1,0 +1,30 @@
+@import 'assets/scss/_variables';
+
+.ant-table-wrapper {
+    width: 100%;
+}
+
+.ant-checkbox-wrapper {
+    span {
+        color: #fff;
+    }
+}
+.ant-checkbox-checked .ant-checkbox-inner {
+    background-color: $bg_color_bottom;
+    border-color: $bg_color_bottom;
+}
+
+.ant-checkbox-inner {
+    border-radius: 50% !important;
+    border: 1px solid $iii_color;
+}
+
+// Device ID 表格欄位內容
+th.ant-table-row-expand-icon-cell::after {
+    content: 'ID';
+    font-weight: bold;
+}
+
+.ant-notification {
+    cursor: pointer;
+}
