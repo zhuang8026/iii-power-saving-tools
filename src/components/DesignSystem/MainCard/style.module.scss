@@ -1,0 +1,64 @@
+@import 'assets/scss/_variables';
+
+.app {
+    height: 500px;
+    width: 85%;
+}
+
+.app_beginng {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    .app-v {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        margin-bottom: auto;
+    }
+    .app__controls {
+        justify-self: flex-end;
+    }
+    .app__controls__btn {
+        background: none;
+        border: none;
+        // font-size: 1.6rem;
+        padding: 1.7rem 2.2rem;
+        margin-bottom: 1rem;
+        border-radius: 8px;
+        color: $--text-gray-dark;
+        transition: all 0.2s;
+    }
+    .app__controls__btn:hover,
+    .app__controls__btn:active {
+        color: $--txt-black;
+    }
+    .app__controls__btn-prime {
+        background-color: $--color-primary;
+        margin: auto;
+        margin-top: 40px;
+        color: $--txt-white;
+        box-shadow: $--box-shadow;
+        padding: 1rem 1.2rem;
+    }
+    .app__controls__btn-prime:hover {
+        box-shadow: $--box-shadow;
+        background-color: $--color-primary-1;
+        color: $--txt-white;
+    }
+    .app__controls__btn-prime:active {
+        box-shadow: $--box-shadow-h;
+        background-color: $--color-primary-1;
+        color: $--txt-white;
+    }
+}
+
+.btn-box {
+    display: flex;
+    align-items: center;
+
+    .start {
+        cursor: pointer;
+    }
+}

@@ -1,0 +1,206 @@
+@import 'assets/scss/_variables';
+
+.nextCard {
+    display: flex;
+    flex-direction: column;
+    height: 500px;
+    width: 85%;
+
+    .app-v {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        margin-bottom: auto;
+
+        .question,
+        .msg {
+            color: $--txt-black;
+            margin-bottom: 2.5rem;
+            display: block;
+        }
+
+        .msg {
+            text-align: center;
+            height: 32px;
+        }
+
+        [type='text'],
+        [type='date'],
+        [type='email'] {
+            border: none;
+            border-bottom: 5px solid $--color-primary;
+            margin: 1rem 0;
+            margin-bottom: 3rem;
+            width: 90%;
+            font-size: inherit;
+            font-family: inherit;
+            color: $--color-primary-1;
+        }
+        [type='text']:focus,
+        [type='date']:focus,
+        [type='email']:focus {
+            border-bottom: 5px dashed $--color-primary-1;
+        }
+
+        [type='date'] {
+            width: auto;
+        }
+
+        .radio {
+            display: flex;
+            align-items: center;
+            position: relative;
+            margin-bottom: 2rem;
+            background-color: $--gray-body;
+            transition: all 0.2s;
+            // font-size: 1.6rem;
+            border-radius: 8px;
+            box-shadow: $--box-shadow;
+        }
+        .radio:hover {
+            background-color: $--color-primary-1;
+            color: $--txt-white;
+        }
+        .radio:hover .checkmark {
+            background-color: $--color-primary;
+        }
+        .radio:active {
+            background-color: $--color-primary;
+            box-shadow: $--box-shadow-h;
+        }
+        .radio label {
+            width: 100%;
+            padding: 1rem 2rem 1rem 4rem;
+            color: $--txt-black;
+        }
+        .radio label:hover {
+            color: $--txt-white;
+        }
+
+        .result {
+            width: 100%;
+            padding: 0rem 2rem 0rem 4rem;
+            color: $--txt-black !important;
+        }
+
+        input[type='radio']:checked ~ label {
+            background-color: $--color-primary;
+            border-radius: 8px;
+            color: $--txt-white;
+        }
+        input[type='radio']:checked ~ label ~ .checkmark {
+            background-color: $--color-primary-1;
+        }
+
+        input[type='radio']:checked + .checkmark {
+            background-color: $--color-primary-1;
+        }
+
+        [type='radio'] {
+            position: absolute;
+            opacity: 0;
+        }
+
+        .checkmark {
+            position: absolute;
+            // top: 30%;
+            left: 1rem;
+            height: 2rem;
+            width: 2rem;
+            background-color: $--txt-gray;
+            border-radius: 50%;
+            z-index: 100;
+        }
+
+        .checkmark:after {
+            content: '';
+            position: absolute;
+            display: none;
+        }
+
+        input:checked ~ .checkmark:after {
+            display: block;
+        }
+
+        .checkmark:after {
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            border-radius: 100%;
+            width: 0.8rem;
+            height: 0.8rem;
+            background-color: $--txt-white;
+        }
+    }
+
+    .active {
+        .checkmark:after {
+            // content: '';
+            // position: absolute;
+            display: block;
+        }
+    }
+
+    .app__controls {
+        justify-self: flex-end;
+        .btn-box {
+            display: flex;
+            .app__controls__btn {
+                cursor: pointer;
+                background: none;
+                border: none;
+                // font-size: 1.6rem;
+                padding: 1.7rem 2.2rem;
+                margin-bottom: 1rem;
+                border-radius: 8px;
+                color: $--text-gray-dark;
+                transition: all 0.2s;
+            }
+            .app__controls__btn:hover,
+            .app__controls__btn:active {
+                color: $--txt-black;
+            }
+            .app__controls__btn-prime {
+                background-color: $--color-primary;
+                margin-left: auto;
+                color: $--txt-white;
+                box-shadow: $--box-shadow;
+                padding: 0.8rem 1rem;
+            }
+            .app__controls__btn-prime:hover {
+                box-shadow: $--box-shadow;
+                background-color: $--color-primary-1;
+                color: $--txt-white;
+            }
+            .app__controls__btn-prime:active {
+                box-shadow: $--box-shadow-h;
+                background-color: $--color-primary-1;
+                color: $--txt-white;
+            }
+        }
+        .disabled {
+            .app__controls__btn {
+                cursor: no-drop;
+                pointer-events: none;
+                background: $--text-gray-dark;
+            }
+            .app__controls__btn-prime:hover {
+                box-shadow: $--text-gray-dark;
+                background-color: $--text-gray-dark;
+                color: $--txt-white;
+            }
+            .app__controls__btn-prime:active {
+                box-shadow: transparent;
+                background-color: $--text-gray-dark;
+                color: $--txt-white;
+            }
+        }
+    }
+
+    .app__controls__progress {
+        height: 10px;
+        border-radius: 100px;
+        background-image: linear-gradient(to right, $--color-primary 1%, $--gray-body 1%);
+        margin-bottom: 1rem;
+    }
+}

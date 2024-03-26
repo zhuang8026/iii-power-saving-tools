@@ -7,7 +7,7 @@ const routes = [
         path: '/',
         title: '節電輕推工具',
         component: Tool,
-        exact: true,
+        exact: false,
         authRequired: false,
         layouts: ['']
     }

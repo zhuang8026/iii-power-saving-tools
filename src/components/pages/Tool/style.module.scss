@@ -1,10 +1,63 @@
 @import 'assets/scss/_variables';
 
-.login {
+.tool {
     width: 100vw;
-    height: calc(100vh - 30px);
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    background-color: $--gray-body;
+    color: $--txt-gray;
+    transition: all 1s;
     color: $black;
+
+    .containter {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        height: auto;
+    }
+
+    .card {
+        width: 600px;
+        height: 100vh;
+        /* padding: 3rem; */
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        background-color: $--txt-white;
+        box-shadow: $--box-shadow;
+        background: url('~assets/images/bg.png') center center no-repeat;
+    }
+
+    .inner {
+        background: #ffffffe9;
+        width: 80%;
+        margin: 0 auto;
+        padding: 3rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        border-radius: 10px;
+    }
+
+    .s_logo,
+    .logo {
+        color: $--color-primary;
+        font-size: 3.6rem;
+        margin-bottom: 5rem;
+    }
+    .s_logo span,
+    .logo span {
+        color: $--txt-black;
+        font-size: 1.8rem;
+    }
+
+    .inner .s_logo {
+        margin-bottom: 0px;
+    }
+
+    .copy {
+        color: $--txt-black;
+        font-size: 0.8rem;
+    }
 }
