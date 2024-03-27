@@ -14,7 +14,7 @@ import classNames from 'classnames/bind';
 const cx = classNames.bind(classes);
 
 const Tool = ({ history }) => {
-    const [step, setStep] = useState(0);
+    const [step, setStep] = useState(2);
 
     const isNext = () => {
         setStep(prev => {

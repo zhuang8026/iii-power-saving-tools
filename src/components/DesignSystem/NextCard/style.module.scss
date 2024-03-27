@@ -5,7 +5,9 @@
     flex-direction: column;
     height: 500px;
     width: 85%;
-
+    @media screen and (max-width: 510px){
+        width: 100%;
+    }/* iphone */
     .app-v {
         display: flex;
         flex-direction: column;

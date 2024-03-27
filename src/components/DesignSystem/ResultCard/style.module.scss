@@ -5,7 +5,9 @@
     flex-direction: column;
     height: 500px;
     width: 85%;
-
+    @media screen and (max-width: 510px) {
+        width: 100%;
+    } /* iphone */
     .app-v {
         display: flex;
         flex-direction: column;
@@ -49,6 +51,36 @@
             strong {
                 font-size: 24px;
                 color: #2ecc71;
+            }
+        }
+
+        .btn-box {
+            width: 100%;
+            text-align: center;
+            .done {
+                font-size: 40px;
+                font-weight: bold;
+                border: 6px dashed $--color-primary;
+                color: $--color-primary;
+            }
+            button {
+                margin-top: 10px;
+                width: 100%;
+                height: 40px;
+                color: $--txt-white;
+                background-color: $--color-primary;
+                transition: all 0.2s;
+
+                &:hover {
+                    box-shadow: $--box-shadow;
+                    background-color: $--color-primary-1;
+                    color: $--txt-white;
+                }
+                &:active {
+                    box-shadow: $--box-shadow-h;
+                    background-color: $--color-primary-1;
+                    color: $--txt-white;
+                }
             }
         }
     }
