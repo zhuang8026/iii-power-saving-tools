@@ -5,7 +5,7 @@ import moment from 'moment';
 import { CloudUploadOutlined, SearchOutlined, WarningOutlined, CalculatorOutlined } from '@ant-design/icons';
 
 // API
-import { getNilmReport001API } from 'api/api';
+// import { getNilmReport001API } from 'api/api';
 
 // utils
 import { getBooleanFromENV } from 'utils/fromENV';
@@ -34,38 +34,38 @@ const GlobalContainer = props => {
     };
 
     // GETNILM001API: 每日 NILM 報告 API
-    const GETNILM001API = async () => {
-        const res = await getNilmReport001API();
-        if (res.code === 200) {
-            let nilmData = res.data
-                .map((val, i) => {
-                    const isToday = moment(val.updateTime).isSame(moment(), 'day');
-                    const iconDOM =
-                        val.type === 'daily_backup' ? (
-                            <CloudUploadOutlined />
-                        ) : val.type === 'nilm' ? (
-                            <SearchOutlined />
-                        ) : val.type === 'dev_pub' ? (
-                            <WarningOutlined />
-                        ) : val.type === 'energy_track' ? (
-                            <CalculatorOutlined />
-                        ) : (
-                            ''
-                        );
-                    return {
-                        queue: val.queue,
-                        type: val.type,
-                        status: isToday ? 'PASS' : 'WARNING',
-                        icon: iconDOM,
-                        updateTime: moment(val.updateTime).format('YYYY/MM/DD HH:mm')
-                    };
-                })
-                .sort((a, b) => a.queue - b.queue);
-            return nilmData;
-        } else {
-            console.log('GET001API error:', res);
-        }
-    };
+    // const GETNILM001API = async () => {
+    //     const res = await getNilmReport001API();
+    //     if (res.code === 200) {
+    //         let nilmData = res.data
+    //             .map((val, i) => {
+    //                 const isToday = moment(val.updateTime).isSame(moment(), 'day');
+    //                 const iconDOM =
+    //                     val.type === 'daily_backup' ? (
+    //                         <CloudUploadOutlined />
+    //                     ) : val.type === 'nilm' ? (
+    //                         <SearchOutlined />
+    //                     ) : val.type === 'dev_pub' ? (
+    //                         <WarningOutlined />
+    //                     ) : val.type === 'energy_track' ? (
+    //                         <CalculatorOutlined />
+    //                     ) : (
+    //                         ''
+    //                     );
+    //                 return {
+    //                     queue: val.queue,
+    //                     type: val.type,
+    //                     status: isToday ? 'PASS' : 'WARNING',
+    //                     icon: iconDOM,
+    //                     updateTime: moment(val.updateTime).format('YYYY/MM/DD HH:mm')
+    //                 };
+    //             })
+    //             .sort((a, b) => a.queue - b.queue);
+    //         return nilmData;
+    //     } else {
+    //         console.log('GET001API error:', res);
+    //     }
+    // };
 
     useEffect(() => {
         deleteCookieAtMidnight();
@@ -76,8 +76,8 @@ const GlobalContainer = props => {
             value={{
                 REACT_APP_VERSION_1,
                 REACT_APP_VERSION_2,
-                REACT_APP_VERSION_3,
-                GETNILM001API // 每日 NILM 報告API
+                REACT_APP_VERSION_3
+                // GETNILM001API // 每日 NILM 報告API
             }}
         >
             {props.children}

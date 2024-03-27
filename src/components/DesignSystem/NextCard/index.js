@@ -7,24 +7,11 @@ import { notification } from 'antd';
 // css
 import classes from './style.module.scss';
 import classNames from 'classnames/bind';
-import { set } from 'date-fns';
 const cx = classNames.bind(classes);
 
-const NextCard = ({ history, isNext }) => {
+const NextCard = ({ history, QA, setQA, isNext }) => {
     const [prog, setProg] = useState(1);
     const [disabled, setDisabled] = useState(true);
-    const [QA, setQA] = useState([
-        { name: '食物自然放涼後，再放入冰箱冷藏，可減輕壓縮機運轉負擔。', result: null },
-        { name: '冰箱定期除霜，以維持運轉效率。', result: null },
-        { name: '嘗試將冷氣設定溫度提高1度，可節省6~9%耗電。', result: null },
-        { name: '半夜冷氣開啟舒眠與定時，可減少多餘耗電。', result: null },
-        { name: '衣物少時用手洗，洗衣籃八分滿再用洗衣機，可減少洗衣機40%的使用率。', result: null },
-        { name: '定期清潔洗衣機，以維持運轉效率。', result: null },
-        { name: '外出時完全關閉開飲機電源，回家後再開啟，省下不必要的浪費。', result: null },
-        { name: '善用除濕機的自動除溼功能，讓機器於濕度高於設定濕度時才會運轉，減少不必要的浪費。', result: null },
-        { name: '以筆記型電腦取代桌上型電腦，能省下約60%的電力。', result: null },
-        { name: '離開房間或出門前，記得隨手關燈。', result: null }
-    ]);
     const progBar = useRef();
 
     const updateProgress = (cur, total) => {
@@ -58,7 +45,7 @@ const NextCard = ({ history, isNext }) => {
                             {prog === index + 1 ? (
                                 <>
                                     <h2 className={cx('msg')} id={val}>
-                                        {index + 1}.{val.name}
+                                        {val.name}
                                     </h2>
                                     <p className={cx('radio')}>
                                         <input
@@ -103,11 +90,12 @@ const NextCard = ({ history, isNext }) => {
             </div>
             <div className={cx('app__controls')}>
                 <div className={cx('btn-box', { disabled: disabled })}>
+                    <div className={cx('step_num')}>{prog}/10</div>
                     <button
                         className={cx('app__controls__btn', 'app__controls__btn-prime', 'next')}
                         onClick={() => clickNext()}
                     >
-                        {prog === 10 ? '送出' : '下一步'}
+                        {prog === QA.length ? '送出' : '下一步'}
                     </button>
                 </div>
                 <div className={cx('app__controls__progress')} ref={progBar}></div>

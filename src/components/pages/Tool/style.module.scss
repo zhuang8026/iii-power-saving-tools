@@ -24,12 +24,12 @@
         justify-content: center;
         align-items: center;
         background-color: $--txt-white;
-        box-shadow: $--box-shadow;
+        // box-shadow: $--box-shadow;
         background: url('~assets/images/bg.png') center center no-repeat;
         background-size: cover;
-        @media screen and (max-width: 510px){
+        @media screen and (max-width: 510px) {
             width: 100%;
-        }/* iphone */
+        } /* iphone */
     }
 
     .inner {
@@ -42,10 +42,10 @@
         justify-content: center;
         align-items: center;
         border-radius: 10px;
-        @media screen and (max-width: 510px){
+        @media screen and (max-width: 510px) {
             width: 90%;
             padding: 2rem;
-        }/* iphone */
+        } /* iphone */
     }
 
     .s_logo,
