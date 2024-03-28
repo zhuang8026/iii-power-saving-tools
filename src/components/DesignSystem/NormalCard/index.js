@@ -34,7 +34,9 @@ const NormalCard = ({ history, userData, setUserData, isNext }) => {
 
     const chooseResult = (index, txt) => {
         userData[index].result = txt;
-        setDisabled(false);
+
+        let bool = txt === '';
+        setDisabled(bool);
     };
     return (
         <div className={cx('nextCard')}>

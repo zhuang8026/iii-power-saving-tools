@@ -64,7 +64,7 @@ const NextCard = ({ history, QA, setQA, isNext }) => {
                                             value="未執行"
                                             name="ic"
                                             id="2"
-                                            onClick={() => chooseResult(2, index)}
+                                            onClick={() => chooseResult(0, index)}
                                         />
                                         <span className={cx('checkmark')} />
                                         <label htmlFor="2">未執行</label>
@@ -75,7 +75,7 @@ const NextCard = ({ history, QA, setQA, isNext }) => {
                                             value="未持有該電器"
                                             name="ic"
                                             id="3"
-                                            onClick={() => chooseResult(3, index)}
+                                            onClick={() => chooseResult(-1, index)}
                                         />
                                         <span className={cx('checkmark')} />
                                         <label htmlFor="3">未持有該電器</label>

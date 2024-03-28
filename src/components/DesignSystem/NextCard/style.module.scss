@@ -55,8 +55,9 @@
             margin-bottom: 2rem;
             background-color: $--gray-body;
             transition: all 0.2s;
-            // font-size: 1.6rem;
-            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: bold;
+            border-radius: 50px;
             box-shadow: $--box-shadow;
         }
         .radio:hover {
@@ -87,7 +88,7 @@
 
         input[type='radio']:checked ~ label {
             background-color: $--color-primary;
-            border-radius: 8px;
+            border-radius: 50px;
             color: $--txt-white;
         }
         input[type='radio']:checked ~ label ~ .checkmark {

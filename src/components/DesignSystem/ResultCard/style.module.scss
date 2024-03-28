@@ -64,11 +64,13 @@
                 color: $--color-primary;
             }
             button {
+                pointer-events: none;
                 margin-top: 10px;
                 width: 100%;
                 height: 40px;
                 color: $--txt-white;
-                background-color: $--color-primary;
+
+                background-color: $--text-gray-dark;
                 transition: all 0.2s;
 
                 &:hover {
@@ -81,6 +83,10 @@
                     background-color: $--color-primary-1;
                     color: $--txt-white;
                 }
+            }
+            .disabled {
+                pointer-events: all;
+                background-color: $--color-primary;
             }
         }
     }

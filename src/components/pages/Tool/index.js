@@ -32,6 +32,7 @@ const Tool = ({ history }) => {
         '2. 以 <strong>快煮壺取代</strong> 開飲機，每月可省下約100元電費。'
     ]);
     const [email, setEmail] = useState(''); // 用戶Email
+    const [surveyNumber, setSurveyNumber] = useState(''); // 用戶問卷編號
     const screenshotRef = useRef(null);
 
     const isNext = async () => {
@@ -49,6 +50,7 @@ const Tool = ({ history }) => {
         const res = await getSelectItemsAPI001();
         if (res.code === 200) {
             console.log('GET001API success:', res);
+            setSurveyNumber(res.data.survey_number);
             let question_data = res.data.question.map(ele => {
                 return { name: ele, result: null };
             });
@@ -63,9 +65,11 @@ const Tool = ({ history }) => {
     const sendSelectData = async () => {
         let payload = {
             userData,
-            question: QA
+            survey: {
+                survey_vol: surveyNumber,
+                question: QA
+            }
         };
-        console.log('payload:', payload);
 
         const res = await postSelectItemsAPI001(payload);
         if (res.code === 200) {
@@ -86,8 +90,8 @@ const Tool = ({ history }) => {
 
                 // Sample email data (replace with actual data)
                 const emailData = {
-                    email: email, // Email address
-                    image: imgData // Base64 image data
+                    user_id: email, // Email address
+                    fileToSend: imgData // Base64 image data
                 };
                 console.log('emailData:', emailData);
 
@@ -122,7 +126,12 @@ const Tool = ({ history }) => {
                         {step === 1 && <NormalCard isNext={isNext} userData={userData} setUserData={setUserData} />}
                         {step === 2 && <NextCard isNext={isNext} QA={QA} setQA={setQA} />}
                         {step === 3 && (
-                            <ResultCard screenshot={saveImageAndSendEmail} result={result} setEmail={setEmail} />
+                            <ResultCard
+                                screenshot={saveImageAndSendEmail}
+                                result={result}
+                                email={email}
+                                setEmail={setEmail}
+                            />
                         )}
 
                         <h3 className={cx('copy')}>版權所有 &copy; 2024 財團法人資訊工業策進會</h3>

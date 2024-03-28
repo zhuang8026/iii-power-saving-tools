@@ -9,7 +9,7 @@ import classes from './style.module.scss';
 import classNames from 'classnames/bind';
 const cx = classNames.bind(classes);
 
-const ResultCard = ({ history, screenshot, result, setEmail }) => {
+const ResultCard = ({ history, screenshot, result, email, setEmail }) => {
     const [send, setSend] = useState(false); // 是否顯示送出
 
     // 輸入 Email
@@ -42,7 +42,10 @@ const ResultCard = ({ history, screenshot, result, setEmail }) => {
                     ) : (
                         <>
                             <Input size="large" placeholder="請輸入您的電子郵箱" onChange={e => writeEmail(e)} />
-                            <button className={cx('send')} onClick={() => postAPI001()}>
+                            <button
+                                className={cx('send', /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email) ? 'disabled' : '')}
+                                onClick={() => postAPI001()}
+                            >
                                 送出
                             </button>
                         </>
