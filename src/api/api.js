@@ -7,14 +7,14 @@ const isMockEnvironment = process.env.REACT_APP_ENV === 'development';
 
 export const getSelectItemsAPI001 = async () => {
     // 如果是开发环境，直接返回模拟数据
-    const url = isMockEnvironment ? `/mock/get_survey.json` : ``;
+    const url = isMockEnvironment ? `/mock/get_survey.json` : `/survey_supply`;
     const res = await apiRequest('GET', url, true);
     return res;
 };
 
 export const postSelectItemsAPI001 = async playload => {
     // 如果是开发环境，直接返回模拟数据
-    const url = isMockEnvironment ? `/mock/post_survey.json` : ``;
+    const url = isMockEnvironment ? `/mock/post_survey.json` : `/recommend_advice`;
     const res = await apiRequest('POST', url, true, playload);
     return res;
 };

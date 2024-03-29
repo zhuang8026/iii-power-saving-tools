@@ -13,6 +13,9 @@ import ResultCard from 'components/DesignSystem/ResultCard';
 // API
 import { getSelectItemsAPI001, postSelectItemsAPI001, postEmailAndImageAPI002 } from 'api/api';
 
+// config
+import { III_VERSION } from 'config';
+
 // css
 import classes from './style.module.scss';
 import classNames from 'classnames/bind';
@@ -32,7 +35,7 @@ const Tool = ({ history }) => {
         '2. 以 <strong>快煮壺取代</strong> 開飲機，每月可省下約100元電費。'
     ]);
     const [email, setEmail] = useState(''); // 用戶Email
-    const [surveyNumber, setSurveyNumber] = useState(''); // 用戶問卷編號
+    const [vol, setVol] = useState(''); // 用戶問卷編號
     const screenshotRef = useRef(null);
 
     const isNext = async () => {
@@ -50,7 +53,7 @@ const Tool = ({ history }) => {
         const res = await getSelectItemsAPI001();
         if (res.code === 200) {
             console.log('GET001API success:', res);
-            setSurveyNumber(res.data.survey_number);
+            setVol(res.data.survey_vol);
             let question_data = res.data.question.map(ele => {
                 return { name: ele, result: null };
             });
@@ -66,16 +69,21 @@ const Tool = ({ history }) => {
         let payload = {
             userData,
             survey: {
-                survey_vol: surveyNumber,
+                survey_vol: vol,
                 question: QA
             }
         };
 
         const res = await postSelectItemsAPI001(payload);
-        if (res.code === 200) {
-            console.log('POST001API success:', res);
+        if (res.status == '200') {
+            console.log('postSelectItemsAPI001 success:', res);
+            setResult(prev => {
+                prev = [];
+                prev.push(res.data);
+                return prev;
+            });
         } else {
-            console.log('POST001API error:', res);
+            console.log('postSelectItemsAPI001 error:', res);
         }
     };
 
@@ -90,16 +98,16 @@ const Tool = ({ history }) => {
 
                 // Sample email data (replace with actual data)
                 const emailData = {
-                    user_id: email, // Email address
-                    fileToSend: imgData // Base64 image data
+                    user_id: email, // Email address: jasonwang@iii.org.tw
+                    user_image: imgData // Base64 image data: base64
                 };
                 console.log('emailData:', emailData);
 
                 const res = await postEmailAndImageAPI002(emailData);
-                if (res.code === 200) {
-                    console.log('POST002API success:', res);
+                if (res.status == '200') {
+                    console.log('postEmailAndImageAPI002 success:', res);
                 } else {
-                    console.log('POST002API error:', res);
+                    console.log('postEmailAndImageAPI002 error:', res);
                 }
             });
         }
@@ -134,7 +142,7 @@ const Tool = ({ history }) => {
                             />
                         )}
 
-                        <h3 className={cx('copy')}>版權所有 &copy; 2024 財團法人資訊工業策進會</h3>
+                        <h3 className={cx('copy')}>版權所有 &copy; 2024 財團法人資訊工業策進會 <br/> beta.{III_VERSION} </h3>
                     </div>
                 </div>
             </div>
