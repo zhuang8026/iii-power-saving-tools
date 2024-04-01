@@ -31,8 +31,8 @@ const Tool = ({ history }) => {
     ]);
     const [QA, setQA] = useState([]);
     const [result, setResult] = useState([
-        '1. 建議把 <strong>冷氣</strong> 風量設 <strong>自動調整</strong>模式，較省電又能讓冷氣更有效率運作。',
-        '2. 以 <strong>快煮壺取代</strong> 開飲機，每月可省下約100元電費。'
+        // '1. 建議把 <strong>冷氣</strong> 風量設 <strong>自動調整</strong>模式，較省電又能讓冷氣更有效率運作。',
+        // '2. 以 <strong>快煮壺取代</strong> 開飲機，每月可省下約100元電費。'
     ]);
     const [email, setEmail] = useState(''); // 用戶Email
     const [vol, setVol] = useState(''); // 用戶問卷編號
