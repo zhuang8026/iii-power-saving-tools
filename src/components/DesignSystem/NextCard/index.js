@@ -32,6 +32,7 @@ const NextCard = ({ history, QA, setQA, isNext }) => {
     };
 
     const chooseResult = (num, index) => {
+        console.log(num, index);
         QA[index].result = num;
         setQA(QA);
         setDisabled(false);
@@ -44,41 +45,43 @@ const NextCard = ({ history, QA, setQA, isNext }) => {
                         <div key={index}>
                             {prog === index + 1 ? (
                                 <>
-                                    <h2 className={cx('msg')} id={val}>
-                                        {val.name}
-                                    </h2>
+                                    <h2
+                                        className={cx('msg')}
+                                        id={index}
+                                        dangerouslySetInnerHTML={{ __html: val.name }}
+                                    />
                                     <p className={cx('radio')}>
                                         <input
                                             type="radio"
                                             value="已執行"
                                             name="ic"
-                                            id="1"
+                                            id="11"
                                             onClick={() => chooseResult(1, index)}
                                         />
                                         <span className={cx('checkmark')} />
-                                        <label htmlFor="1">已執行</label>
+                                        <label htmlFor="11">已執行</label>
                                     </p>
                                     <p className={cx('radio')}>
                                         <input
                                             type="radio"
                                             value="未執行"
                                             name="ic"
-                                            id="2"
+                                            id="22"
                                             onClick={() => chooseResult(0, index)}
                                         />
                                         <span className={cx('checkmark')} />
-                                        <label htmlFor="2">未執行</label>
+                                        <label htmlFor="22">未執行</label>
                                     </p>
                                     <p className={cx('radio')}>
                                         <input
                                             type="radio"
                                             value="未持有該電器"
                                             name="ic"
-                                            id="3"
+                                            id="33"
                                             onClick={() => chooseResult(-1, index)}
                                         />
                                         <span className={cx('checkmark')} />
-                                        <label htmlFor="3">未持有該電器</label>
+                                        <label htmlFor="33">未持有該電器</label>
                                     </p>
                                 </>
                             ) : (

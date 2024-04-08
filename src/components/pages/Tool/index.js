@@ -9,6 +9,7 @@ import NormalCard from 'components/DesignSystem/NormalCard';
 import NextCard from 'components/DesignSystem/NextCard';
 import MainCard from 'components/DesignSystem/MainCard';
 import ResultCard from 'components/DesignSystem/ResultCard';
+import Loading from 'components/DesignSystem/Loading';
 
 // API
 import { getSelectItemsAPI001, postSelectItemsAPI001, postEmailAndImageAPI002 } from 'api/api';
@@ -124,6 +125,7 @@ const Tool = ({ history }) => {
 
     return (
         <div className={cx('tool')}>
+            {(step === 3 &&result.length <= 0) && <Loading />}
             <div className={cx('containter')}>
                 <div id="start" className={cx('card')} ref={screenshotRef}>
                     <div className={cx('inner')}>
@@ -142,7 +144,9 @@ const Tool = ({ history }) => {
                             />
                         )}
 
-                        <h3 className={cx('copy')}>版權所有 &copy; 2024 財團法人資訊工業策進會 <br/> beta.{III_VERSION} </h3>
+                        <h3 className={cx('copy')}>
+                            版權所有 &copy; 2024 財團法人資訊工業策進會 <br /> beta.{III_VERSION}{' '}
+                        </h3>
                     </div>
                 </div>
             </div>

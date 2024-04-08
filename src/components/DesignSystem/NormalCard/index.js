@@ -13,6 +13,7 @@ const NormalCard = ({ history, userData, setUserData, isNext }) => {
     const [prog, setProg] = useState(1);
     const [disabled, setDisabled] = useState(true);
     const progBar = useRef();
+    const inputRefs = useRef([]);
 
     const updateProgress = (cur, total) => {
         progBar.current.style.backgroundImage = `linear-gradient(to right, #386ac7 ${(cur / total) * 100}%, #e6e6e6 ${
@@ -38,6 +39,13 @@ const NormalCard = ({ history, userData, setUserData, isNext }) => {
         let bool = txt === '';
         setDisabled(bool);
     };
+
+    useEffect(() => {
+        if (prog > 0 && prog <= userData.length) {
+            inputRefs.current[prog - 1].focus();
+        }
+    }, [prog, userData]);
+
     return (
         <div className={cx('nextCard')}>
             <div className={cx('app-v')}>
@@ -53,6 +61,7 @@ const NormalCard = ({ history, userData, setUserData, isNext }) => {
                                         <Input
                                             size="large"
                                             placeholder={val.name}
+                                            ref={el => (inputRefs.current[index] = el)}
                                             onChange={e => chooseResult(index, e.target.value)}
                                         />
                                     </p>
