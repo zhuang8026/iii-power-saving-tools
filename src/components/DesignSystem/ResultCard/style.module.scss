@@ -15,14 +15,18 @@
         margin-bottom: auto;
         .radio {
             display: flex;
-            align-items: center;
+            align-items: flex-start;
             position: relative;
-            margin-bottom: 2rem;
+            margin-bottom: 1.2rem;
             background-color: var(--gray-body);
             transition: all 0.2s;
             // font-size: 1.6rem;
             border-radius: 8px;
             box-shadow: var(--box-shadow);
+
+            p {
+                margin: 0;
+            }
         }
         .radio:hover {
             background-color: var(--color-primary-1);
@@ -44,8 +48,14 @@
             color: var(--txt-white);
         }
 
+        .number {
+            font-size: 24px;
+            font-weight: bold;
+            color: var(--txt-black) !important;
+            margin-right: 10px;
+        }
         .result {
-            width: 100%;
+            width: 90%;
             // padding: 0rem 2rem 0rem 4rem;
             color: var(--txt-black) !important;
             strong {
@@ -83,6 +93,11 @@
                     background-color: $--color-primary-1;
                     color: $--txt-white;
                 }
+            }
+            span {
+                font-size: 14px;
+                color: $danger;
+                margin-top: 10px;
             }
             .disabled {
                 pointer-events: all;

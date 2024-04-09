@@ -22,18 +22,23 @@
         }
 
         .msg {
+            font-size: 16px;
             text-align: center;
-            height: 32px;
+            // height: 32px;
+            @media screen and (max-width: 400px) {
+                font-size: 14px;
+            } /* iphone */
         }
 
         [type='text'],
         [type='date'],
+        [type='number'],
         [type='email'] {
             border: none;
             border-bottom: 5px solid $--text-gray-dark;
             // background: transparent;
             // margin: 1rem 0;
-            margin-bottom: 3rem;
+            margin-bottom: 0.4rem;
             width: 100%;
             font-size: inherit;
             font-family: inherit;
@@ -41,6 +46,7 @@
         }
         [type='text']:focus,
         [type='date']:focus,
+        [type='number']:focus,
         [type='email']:focus {
             border-bottom: 5px solid $iii_color_2;
         }
@@ -59,6 +65,10 @@
             width: 100%;
             padding: 0rem 2rem 0rem 4rem;
             color: $--txt-black !important;
+        }
+
+        img {
+            width: 100%;
         }
     }
 

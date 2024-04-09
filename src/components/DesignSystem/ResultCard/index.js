@@ -30,6 +30,7 @@ const ResultCard = ({ history, screenshot, result, email, setEmail }) => {
                     result.map((ele, index) => {
                         return (
                             <div className={cx('radio')} key={index}>
+                                <p className={cx('number')}>{index + 1}.</p>
                                 <p className={cx('result')} dangerouslySetInnerHTML={{ __html: ele }} />
                             </div>
                         );
@@ -41,6 +42,9 @@ const ResultCard = ({ history, screenshot, result, email, setEmail }) => {
                         </>
                     ) : (
                         <>
+                            <span>
+                                若您欲保留節電秘笈的結果，請提供您的電子郵件地址，我們將會以電子郵件方式將結果寄送給您。
+                            </span>
                             <Input size="large" placeholder="請輸入您的電子郵箱" onChange={e => writeEmail(e)} />
                             <button
                                 className={cx('send', /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email) ? 'disabled' : '')}

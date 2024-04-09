@@ -1,6 +1,6 @@
 {
     "name": "iii-power-saving-tools",
-    "version": "1.0.0",
+    "version": "1.0.2",
     "private": true,
     "scripts": {
         "mock": "cross-env REACT_APP_ENV=development react-scripts start",
