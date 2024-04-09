@@ -97,7 +97,7 @@ const Tool = ({ history }) => {
         setStep(prev => {
             return prev + 1;
         });
-        console.log('prev:', step);
+        // console.log('prev:', step);
         if (step === 2) await sendSelectData();
     };
 
@@ -107,7 +107,7 @@ const Tool = ({ history }) => {
     const GET_getSelectItemsAPI001 = async () => {
         const res = await getSelectItemsAPI001();
         if (res.code === 200) {
-            console.log('GET001API success:', res);
+            // console.log('GET001API success:', res);
             setVol(res.data.survey_vol);
             let question_data = res.data.question.map(ele => {
                 return { name: ele, result: null };
@@ -131,7 +131,7 @@ const Tool = ({ history }) => {
 
         const res = await postSelectItemsAPI001(payload);
         if (res.status == '200') {
-            console.log('postSelectItemsAPI001 success:', res);
+            // console.log('postSelectItemsAPI001 success:', res);
             setResult(prev => {
                 prev = [];
                 // prev.push(res.data);
@@ -161,7 +161,7 @@ const Tool = ({ history }) => {
 
                 const res = await postEmailAndImageAPI002(emailData);
                 if (res.status == '200') {
-                    console.log('postEmailAndImageAPI002 success:', res);
+                    // console.log('postEmailAndImageAPI002 success:', res);
                 } else {
                     console.log('postEmailAndImageAPI002 error:', res);
                 }

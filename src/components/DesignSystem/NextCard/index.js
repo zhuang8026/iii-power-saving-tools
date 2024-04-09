@@ -32,7 +32,6 @@ const NextCard = ({ history, QA, setQA, isNext }) => {
     };
 
     const chooseResult = (num, index) => {
-        console.log(num, index);
         QA[index].result = num;
         setQA(QA);
         setDisabled(false);

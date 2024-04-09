@@ -219,7 +219,6 @@ back.addEventListener('click', function () {
 next.addEventListener('click', controler);
 
 start.addEventListener('click', function () {
-  console.log('click')
   let start = document.getElementById('start');
   let content = document.getElementById('content');
   start.style.display = 'none';
