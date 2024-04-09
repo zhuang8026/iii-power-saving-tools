@@ -43,7 +43,7 @@ const ResultCard = ({ history, screenshot, result, email, setEmail }) => {
                     ) : (
                         <>
                             <span>
-                                若您欲保留節電秘笈的結果，請提供您的電子郵件地址，我們將會以電子郵件方式將結果寄送給您。
+                                若您想保存節能秘笈的結果，請提供您的電子郵件地址，我們會透過電子郵件將結果寄給您。
                             </span>
                             <Input size="large" placeholder="請輸入您的電子郵箱" onChange={e => writeEmail(e)} />
                             <button
