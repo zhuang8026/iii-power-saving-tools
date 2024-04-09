@@ -38,7 +38,7 @@ const Tool = ({ history }) => {
         },
         {
             type: 'text',
-            name: '請輸入電費單據上用電戶名之前"六個字"',
+            name: '請輸入電費單據上用電戶名',
             placeholder: '例：王小明',
             inputMode: 'search',
             img: ELECNAME,
