@@ -10,6 +10,8 @@ import NextCard from 'components/DesignSystem/NextCard';
 import MainCard from 'components/DesignSystem/MainCard';
 import ResultCard from 'components/DesignSystem/ResultCard';
 import Loading from 'components/DesignSystem/Loading';
+import Button from 'components/DesignSystem/Button';
+import { FullWindowAnimateStorage } from 'components/DesignSystem/FullWindow';
 
 // API
 import { getSelectItemsAPI001, postSelectItemsAPI001, postEmailAndImageAPI002 } from 'api/api';
@@ -91,6 +93,7 @@ const Tool = ({ history }) => {
     ]);
     const [email, setEmail] = useState(''); // 用戶Email
     const [vol, setVol] = useState(''); // 用戶問卷編號
+    const { closeAnimate, openAnimate } = useContext(FullWindowAnimateStorage);
     const screenshotRef = useRef(null);
 
     const isNext = async () => {
@@ -100,6 +103,47 @@ const Tool = ({ history }) => {
         // console.log('prev:', step);
         if (step === 2) await sendSelectData();
     };
+
+    // open loading
+    const openLoading = () => {
+        openAnimate({
+            component: <Notification />
+        });
+    };
+
+    const Notification = () => {
+        let text_list = [
+            '財團法人資訊工業策進會（以下簡稱本會）尊重並保護您的隱私權。為了幫助您瞭解本會如何蒐集、處理及利用您的個人資料，請務必詳細閱讀本會的「隱私權聲明」。',
+            '一、本會「隱私權聲明」適用於您與本會洽辦業務、參與各項活動（如報名研討會/課程、加入網站會員、訂閱電子報等）或透過電話、傳真或本會網站意見信箱提出詢問或建議時（包括本會官網及本會各業務部門網站），所涉及之個人資料蒐集、處理與利用行為。',
+            '二、凡經由本會網站連結至第三方獨立管理、經營之網站，有關個人資料的保護，適用第三方或各該網站的隱私權政策，本會不負任何連帶責任。',
+            '三、您的個人資料在處理過程中，本會將遵守相關之流程及內部作業規範，並依據資訊安全之要求，進行必要之人員控管。',
+            '四、單純瀏覽本會網站及下載檔案之行為，本會不會蒐集任何與個人身分有關之資訊。',
+            '五、單純瀏覽本會網站及下載檔案之行為，本會不會蒐集任何與個人身分有關之資訊。'
+        ];
+        return (
+            <div className={cx('notification')}>
+                <div className={cx('inner_bg')}>
+                    <div className={cx('inner')}>
+                        <div className={cx('title_c')} />
+                        <div className={cx('title')}>資訊通知</div>
+                        <div className={cx('content')}>
+                            {text_list.map((ele, index) => (
+                                <p className={cx('txt')} key={index}>
+                                    {ele}
+                                </p>
+                            ))}
+                        </div>
+                        <div className={cx('btn_c')}>
+                            <Button text="確認" onClick={closeLoading} />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        );
+    };
+
+    // close loading
+    const closeLoading = () => closeAnimate();
 
     // --------- API ---------
 
@@ -176,6 +220,7 @@ const Tool = ({ history }) => {
 
     useEffect(() => {
         asyncAllAPI();
+        openLoading();
     }, []);
 
     return (

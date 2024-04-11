@@ -6,6 +6,7 @@ import { BellOutlined } from '@ant-design/icons';
 
 // DesignSystem
 import NoMatch from 'components/DesignSystem/NoMatch';
+import { withFullWindowProvider, FullPopWindow } from 'components/DesignSystem/FullWindow';
 
 // config
 import outsideRoutes from 'config/routes';
@@ -61,8 +62,13 @@ function App({ match, location, history }) {
                         <Route component={NoMatch} />
                     </Switch>
                 </Suspense>
+
+                {/**
+                 * 可隨意添加 comment
+                 */}
+                <FullPopWindow />
             </div>
         </div>
     );
 }
-export default withRouter(App);
+export default withFullWindowProvider(withRouter(App));
