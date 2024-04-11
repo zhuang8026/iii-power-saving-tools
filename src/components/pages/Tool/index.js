@@ -113,24 +113,18 @@ const Tool = ({ history }) => {
 
     const Notification = () => {
         let text_list = [
-            '財團法人資訊工業策進會（以下簡稱本會）尊重並保護您的隱私權。為了幫助您瞭解本會如何蒐集、處理及利用您的個人資料，請務必詳細閱讀本會的「隱私權聲明」。',
-            '一、本會「隱私權聲明」適用於您與本會洽辦業務、參與各項活動（如報名研討會/課程、加入網站會員、訂閱電子報等）或透過電話、傳真或本會網站意見信箱提出詢問或建議時（包括本會官網及本會各業務部門網站），所涉及之個人資料蒐集、處理與利用行為。',
-            '二、凡經由本會網站連結至第三方獨立管理、經營之網站，有關個人資料的保護，適用第三方或各該網站的隱私權政策，本會不負任何連帶責任。',
-            '三、您的個人資料在處理過程中，本會將遵守相關之流程及內部作業規範，並依據資訊安全之要求，進行必要之人員控管。',
-            '四、單純瀏覽本會網站及下載檔案之行為，本會不會蒐集任何與個人身分有關之資訊。',
-            '五、單純瀏覽本會網站及下載檔案之行為，本會不會蒐集任何與個人身分有關之資訊。'
+            '親愛的用戶，您好：',
+            '省電好Easy！僅透過本套輕推行為系統，依序<strong>填答10項用電行為的執行狀況</strong>，即可<strong>評估您的日常用電習慣</strong>，據以提供<strong>適合您執行的節電秘笈</strong>。'
         ];
         return (
             <div className={cx('notification')}>
                 <div className={cx('inner_bg')}>
                     <div className={cx('inner')}>
                         <div className={cx('title_c')} />
-                        <div className={cx('title')}>資訊通知</div>
+                        <div className={cx('title')}>流程說明</div>
                         <div className={cx('content')}>
                             {text_list.map((ele, index) => (
-                                <p className={cx('txt')} key={index}>
-                                    {ele}
-                                </p>
+                                <p className={cx('txt')} key={index} dangerouslySetInnerHTML={{ __html: ele }} />
                             ))}
                         </div>
                         <div className={cx('btn_c')}>
