@@ -114,7 +114,7 @@ const Tool = ({ history }) => {
     const Notification = () => {
         let text_list = [
             '親愛的用戶，您好：',
-            '省電好Easy！僅透過本套輕推行為系統，依序<strong>填答10項用電行為的執行狀況</strong>，即可<strong>評估您的日常用電習慣</strong>，據以提供<strong>適合您執行的節電秘笈</strong>。'
+            '本套輕推行為系統，依序<strong>填答10項用電行為的執行狀況</strong>，即可<strong>評估您的日常用電習慣</strong>，據以提供<strong>適合您執行的節電秘笈</strong>。讓您省電好Easy！'
         ];
         return (
             <div className={cx('notification')}>
