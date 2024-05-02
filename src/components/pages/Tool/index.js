@@ -80,7 +80,8 @@ const Tool = ({ history }) => {
                 { value: '三芝區', label: '三芝區' },
                 { value: '金山區', label: '金山區' },
                 { value: '平溪區', label: '平溪區' },
-                { value: '貢寮區', label: '貢寮區' }
+                { value: '貢寮區', label: '貢寮區' },
+                { value: 'other', label: '其他' },
             ],
             result: null
         },
