@@ -162,7 +162,6 @@ const Tool = ({ history }) => {
     const sendSelectData = async () => {
         let payload = {
             data_from: '新北',
-            userData,
             userData: {
                 cust_id: userData[0].result, // 電號
                 name: userData[1].result, // 電戶名
