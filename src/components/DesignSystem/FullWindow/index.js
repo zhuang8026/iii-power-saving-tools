@@ -1,6 +1,9 @@
 import React, { createContext, useState, useContext } from 'react';
 
-import classes from './styles.module.scss';
+// css
+import classes from './style.module.scss';
+import classNames from 'classnames/bind';
+const cx = classNames.bind(classes);
 
 export const FullWindowAnimateStorage = createContext();
 
@@ -40,7 +43,7 @@ export const FullPopWindow = () => {
     } = animateObjData;
 
     if (animateObj) {
-        return <div className={classes.popAnimateContainer}>{animateObj?.component}</div>;
+        return <div className={cx('popAnimateContainer')}>{animateObj?.component}</div>;
     }
     return null;
 };

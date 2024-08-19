@@ -21,7 +21,7 @@ const MainCard = ({ history, isNext }) => {
                         className={cx('start', 'app__controls__btn', 'app__controls__btn-prime')}
                         onClick={() => isNext()}
                     >
-                        取得秘笈
+                        開始測驗
                     </button>
                 </div>
             </div>

@@ -9,34 +9,10 @@ import classes from './style.module.scss';
 import classNames from 'classnames/bind';
 const cx = classNames.bind(classes);
 
-const otherList = [
-    { value: '臺北市', label: '臺北市' },
-    { value: '桃園市', label: '桃園市' },
-    { value: '臺中市', label: '臺中市' },
-    { value: '臺南市', label: '臺南市' },
-    { value: '高雄市', label: '高雄市' },
-
-    { value: '基隆市', label: '基隆市' },
-    { value: '新竹市', label: '新竹市' },
-    { value: '嘉義市', label: '嘉義市' },
-
-    { value: '宜蘭縣', label: '宜蘭縣' },
-    { value: '新竹縣', label: '新竹縣' },
-    { value: '苗栗縣', label: '苗栗縣' },
-    { value: '彰化縣', label: '彰化縣' },
-    { value: '南投縣', label: '南投縣' },
-    { value: '雲林縣', label: '雲林縣' },
-    { value: '嘉義縣', label: '嘉義縣' },
-    { value: '屏東縣', label: '屏東縣' },
-    { value: '花蓮縣', label: '花蓮縣' },
-    { value: '臺東縣', label: '臺東縣' },
-    { value: '澎湖縣', label: '澎湖縣' }
-];
-
 const NormalCard = ({ history, userData, setUserData, isNext }) => {
     const [prog, setProg] = useState(1);
     const [disabled, setDisabled] = useState(true);
-    const [isOtherRegion, setIsOtherRegion] = useState(false);
+    // const [isOtherRegion, setIsOtherRegion] = useState(false);
     const progBar = useRef();
     // const inputRefs = useRef([]);
 
@@ -48,14 +24,14 @@ const NormalCard = ({ history, userData, setUserData, isNext }) => {
 
     const controler = () => {
         setProg(prog + 1);
-        updateProgress(prog, 4);
+        updateProgress(prog, 2);
         setDisabled(true);
     };
 
     const clickNext = () => {
         setUserData(userData);
         userData[prog - 1].result !== null && controler();
-        prog === 4 && userData[prog - 1].result !== null && isNext();
+        prog === 2 && userData[prog - 1].result !== null && isNext();
     };
 
     const chooseResult = (index, txt) => {
@@ -65,23 +41,12 @@ const NormalCard = ({ history, userData, setUserData, isNext }) => {
 
         switch (index) {
             case 0:
-                let regex_0 = /^\d{11,}$/;
+                let regex_0 = /^[\u4e00-\u9fa5]+$/;
                 bool = !regex_0.test(txt);
                 break;
             case 1:
-                let regex_1 = /^[\u4e00-\u9fa5]+$/;
+                let regex_1 = /^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/;
                 bool = !regex_1.test(txt);
-                break;
-            case 2:
-                // txt 不能為空或 "other", true 為不可下一步
-                bool = txt === '' || txt === 'other';
-                let otherItem = otherList.map(ele => ele.value);
-                txt === 'other' || otherItem.includes(txt) ? setIsOtherRegion(true) : setIsOtherRegion(false);
-
-                console.log(txt === 'other', otherItem.includes(txt), isOtherRegion, txt);
-                break;
-            case 3:
-                bool = txt === '';
                 break;
             default:
                 break;
@@ -143,7 +108,7 @@ const NormalCard = ({ history, userData, setUserData, isNext }) => {
                                                     }
                                                     options={val.list}
                                                 />
-                                                {isOtherRegion && (
+                                                {/* {isOtherRegion && (
                                                     <>
                                                         <h2 className={cx('msg')}>請選擇其他地區</h2>
                                                         <Select
@@ -162,12 +127,12 @@ const NormalCard = ({ history, userData, setUserData, isNext }) => {
                                                             options={otherList}
                                                         />
                                                     </>
-                                                )}
+                                                )} */}
                                             </div>
                                         )}
                                     </div>
 
-                                    {val.img && <img src={val.img} alt="" />}
+                                    {/* {val.img && <img src={val.img} alt="" />} */}
                                 </>
                             ) : (
                                 ''
@@ -178,7 +143,7 @@ const NormalCard = ({ history, userData, setUserData, isNext }) => {
             </div>
             <div className={cx('app__controls')}>
                 <div className={cx('btn-box', { disabled: disabled })}>
-                    <div className={cx('step_num')}>{prog}/4</div>
+                    <div className={cx('step_num')}>{prog}/2</div>
                     <button
                         className={cx('app__controls__btn', 'app__controls__btn-prime', 'next')}
                         onClick={() => clickNext()}
