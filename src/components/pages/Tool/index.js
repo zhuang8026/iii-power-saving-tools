@@ -81,7 +81,7 @@ const Tool = ({ history }) => {
                 { value: '金山區', label: '金山區' },
                 { value: '平溪區', label: '平溪區' },
                 { value: '貢寮區', label: '貢寮區' },
-                { value: 'other', label: '其他' },
+                { value: 'other', label: '其他' }
             ],
             result: null
         },
@@ -161,7 +161,14 @@ const Tool = ({ history }) => {
     // 送出選擇題
     const sendSelectData = async () => {
         let payload = {
+            data_from: '新北',
             userData,
+            userData: {
+                cust_id: userData[0].result, // 電號
+                name: userData[1].result, // 電戶名
+                area: userData[2].result, // 行政區
+                community: userData[3].result // 社區
+            },
             survey: {
                 survey_vol: vol,
                 question: QA
