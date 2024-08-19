@@ -35,7 +35,7 @@ const ResultCard = ({ history, screenshot, result, email, setEmail }) => {
                             </div>
                         );
                     })}
-                <div className={cx('btn-box')}>
+                {/* <div className={cx('btn-box')}>
                     {send ? (
                         <>
                             <p className={cx('done')}>秘笈已寄出</p>
@@ -54,7 +54,7 @@ const ResultCard = ({ history, screenshot, result, email, setEmail }) => {
                             </button>
                         </>
                     )}
-                </div>
+                </div> */}
             </div>
         </div>
     );
