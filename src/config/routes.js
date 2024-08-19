@@ -5,7 +5,7 @@ import Tool from 'components/pages/Tool';
 const routes = [
     {
         path: '/',
-        title: '節電輕推工具',
+        title: '節電心理測驗',
         component: Tool,
         exact: false,
         authRequired: false,

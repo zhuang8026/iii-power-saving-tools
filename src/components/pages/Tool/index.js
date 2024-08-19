@@ -132,6 +132,8 @@ const Tool = ({ history }) => {
             }
         };
 
+        setEmail(userData[1]['result']);
+
         const res = await postSelectItemsAPI001(payload);
         if (res.status == '200') {
             // console.log('postSelectItemsAPI001 success:', res);
@@ -204,7 +206,9 @@ const Tool = ({ history }) => {
                         )}
 
                         <h3 className={cx('copy')}>
-                            版權所有 &copy; 2024 財團法人資訊工業策進會 <br /> beta.{III_VERSION}{' '}
+                            版權所有 &copy; 2024 財團法人資訊工業策進會 <br />
+                            能源署補助辦理主動式節能技術與示範應用研究計畫 <br />
+                            beta.{III_VERSION}{' '}
                         </h3>
                     </div>
                 </div>

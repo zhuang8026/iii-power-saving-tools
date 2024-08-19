@@ -66,3 +66,10 @@
         cursor: pointer;
     }
 }
+
+strong {
+    color: $--color-primary;
+    // font-size: 1.4rem;
+    // margin: 0 5px;
+    border-bottom: 1px solid $--color-primary;
+}

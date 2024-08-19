@@ -45,7 +45,7 @@ const ResultCard = ({ history, screenshot, result, email, setEmail }) => {
                             <span>
                                 若您想保存節能秘笈的結果，請提供您的電子郵件地址，我們會透過電子郵件將結果寄給您。
                             </span>
-                            <Input size="large" placeholder="請輸入您的電子郵箱" onChange={e => writeEmail(e)} />
+                            <Input size="large" placeholder="請輸入您的電子郵箱" value={email} onChange={e => writeEmail(e)} />
                             <button
                                 className={cx('send', /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email) ? 'disabled' : '')}
                                 onClick={() => postAPI001()}
