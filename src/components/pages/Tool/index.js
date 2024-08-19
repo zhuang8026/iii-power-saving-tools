@@ -40,7 +40,7 @@ const Tool = ({ history }) => {
         },
         {
             type: 'text',
-            name: '請輸入電子郵箱',
+            name: '主動式節能服務平台帳號 (Email)',
             placeholder: '例：xiaoming@example.com',
             inputMode: 'search',
             img: ELECNAME,
@@ -206,8 +206,10 @@ const Tool = ({ history }) => {
                         )}
 
                         <h3 className={cx('copy')}>
-                            版權所有 &copy; 2024 財團法人資訊工業策進會 <br />
-                            能源署補助辦理主動式節能技術與示範應用研究計畫 <br />
+                            版權所有 &copy; 2024 財團法人資訊工業策進會
+                            <br />
+                            能源署補助辦理主動式節能技術與示範應用研究計畫
+                            <br />
                             beta.{III_VERSION}{' '}
                         </h3>
                     </div>
